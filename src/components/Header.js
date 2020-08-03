@@ -1,12 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
 import { ErrorContext } from "../context/errors";
+import Progress from "./Progress";
 
 export default function Header() {
   const [file, setFile] = useState(null);
-
   const { setError } = useContext(ErrorContext);
 
-  const allowedTypes = ["image/png", "image/jpg"];
+  const allowedTypes = ["image/png", "image/jpeg"];
 
   const handleInputChange = (e) => {
     const file = e.target.files[0];
@@ -15,6 +15,7 @@ export default function Header() {
       setError({ msg: "" });
     } else {
       setFile(null);
+      console.log(file);
       setError({ msg: "Select a file of the allowed type (png, jpg)" });
     }
   };
@@ -28,7 +29,7 @@ export default function Header() {
             <span>+</span>
           </label>
         </form>
-        {file && <p>{file.name}</p>}
+        {file && <Progress file={file} setFile={setFile} />}
       </div>
     </div>
   );
