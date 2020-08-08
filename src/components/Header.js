@@ -24,7 +24,7 @@ export default function Header() {
   return (
     <div className="header">
       <div className="container header-items">
-        <h1>Family Gallery</h1>
+        <h1>Gallery</h1>
 
         <form>
           <label>
@@ -34,7 +34,6 @@ export default function Header() {
         </form>
         {user && (
           <div className="user-header">
-            <p>Hello, {user.displayName.split(" ")[0]}</p>
             <p onClick={signOut}>Sign Out</p>
           </div>
         )}

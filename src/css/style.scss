@@ -27,6 +27,7 @@ h1 {
 // Header
 
 .header {
+  position: relative;
   .header-items {
     display: flex;
     align-items: center;
@@ -37,6 +38,10 @@ h1 {
       font-size: 2rem;
     }
     form {
+      top: 12px;
+      left: 50%;
+      position: absolute;
+      transform: translateX(-50%);
       text-align: center;
       label {
         display: block;
@@ -67,6 +72,10 @@ h1 {
         }
       }
     }
+    .user-header {
+      cursor: pointer;
+      font-weight: 600;
+    }
     .progress-bar {
       background-color: $accent;
       height: 5px;
@@ -81,9 +90,13 @@ h1 {
 
 .images-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(31%, 1fr));
   grid-gap: 40px;
   margin: 2rem auto;
+
+  @media screen and (max-width: 900px) {
+    grid-gap: 20px;
+  }
 
   .images-grid-item {
     height: 0;

@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import "./css/import.scss";
 import { initialErrorState, ErrorContext } from "./context/errors";
 import { UserContext, initialUserState } from "./context/user";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Authentication from "./components/Authentication";
 import { auth } from "./firebase/config";
 import Overlay from "./components/Overlay";
 
@@ -31,18 +29,7 @@ function App() {
       <ErrorContext.Provider value={{ error, setError }}>
         <div className="App">
           <Overlay />
-          <Router>
-            <Authentication>
-              <Switch>
-                <Route exact path="/">
-                  <Home image={image} setImage={setImage} />
-                </Route>
-                <Route path="/login">
-                  <Login />
-                </Route>
-              </Switch>
-            </Authentication>
-          </Router>
+          {user ? <Home image={image} setImage={setImage} /> : <Login />}
         </div>
       </ErrorContext.Provider>
     </UserContext.Provider>
