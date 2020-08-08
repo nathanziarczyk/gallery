@@ -11,6 +11,7 @@ body {
   background-color: $background;
   color: $font;
   font-size: 16px;
+  overflow: hidden;
 }
 
 h1 {
@@ -116,4 +117,20 @@ h1 {
     margin: 5rem auto;
     border: 3px solid white;
   }
+}
+
+// Overlay
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: white;
+  transition: 1000ms ease opacity;
 }
