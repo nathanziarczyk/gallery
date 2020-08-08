@@ -30,13 +30,21 @@ export default function Images({ setImage }) {
               alt="dat van iets"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
             />
             {/* {user.uid === doc.user.id && (
               <BsFillTrashFill className="trash-icon" />
             )} */}
-            <a href={doc.url} target="_blank" rel="noopener noreferrer">
+            <motion.a
+              href={doc.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.3 }}
+            >
               <FiExternalLink className="trash-icon" />
-            </a>
+            </motion.a>
           </motion.div>
         );
       })}
