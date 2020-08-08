@@ -154,11 +154,23 @@ h1 {
 
 .sign-in-with-google {
   width: 100vw;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   img {
     cursor: pointer;
   }
+}
+
+.trash-icon {
+  color: black;
+  background-color: white;
+  border-radius: 5px;
+  padding: 0.3rem;
+  font-size: 2rem;
+  font-weight: 900;
+  z-index: 100;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
