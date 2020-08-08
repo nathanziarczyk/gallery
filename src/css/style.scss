@@ -81,7 +81,7 @@ h1 {
 
 .images-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
   grid-gap: 40px;
   margin: 2rem auto;
 
@@ -116,6 +116,10 @@ h1 {
     max-height: 80%;
     margin: 5rem auto;
     border: 3px solid white;
+    @media screen and(max-width: 900px) {
+      max-width: 85%;
+      max-height: 90%;
+    }
   }
 }
 
@@ -133,4 +137,15 @@ h1 {
   z-index: 100;
   background-color: white;
   transition: 1000ms ease opacity;
+}
+
+.sign-in-with-google {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    cursor: pointer;
+  }
 }

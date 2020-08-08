@@ -14,7 +14,7 @@ export default function Header() {
   const handleInputChange = (e) => {
     const file = e.target.files[0];
     if (file && allowedTypes.includes(file.type)) {
-      setFile(file);
+      setFile({ file, user: { id: user.uid, name: user.displayName } });
       setError({ msg: "" });
     } else {
       setFile(null);
@@ -24,20 +24,20 @@ export default function Header() {
   return (
     <div className="header">
       <div className="container header-items">
-        <h1>InstaClone</h1>
+        <h1>Family Gallery</h1>
 
-        {user && (
-          <div className="user-header">
-            <p>Hello, {user.displayName.split(" ")[0]}</p>
-            <p onClick={signOut}>Sign Out</p>
-          </div>
-        )}
         <form>
           <label>
             <input type="file" onChange={(e) => handleInputChange(e)} />
             <span>+</span>
           </label>
         </form>
+        {user && (
+          <div className="user-header">
+            <p>Hello, {user.displayName.split(" ")[0]}</p>
+            <p onClick={signOut}>Sign Out</p>
+          </div>
+        )}
         {file && <Progress file={file} setFile={setFile} />}
       </div>
     </div>
